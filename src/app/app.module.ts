@@ -7,7 +7,9 @@ import { EventThumbnailComponent } from './components/event-thumbnail/event-thum
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { EventDetailsComponent } from './components/event-details/event-details.component';
 import { AppRoutingModule } from './app-routing.module';
-import { CreateEventComponent } from './create-event/create-event.component';
+import { CreateEventComponent } from './components/create-event/create-event.component';
+import { ErrorComponent } from './components/error/error.component';
+import { EventRouteActivatorService } from './services/event-route-activator.service';
 
 @NgModule({
   declarations: [
@@ -16,13 +18,11 @@ import { CreateEventComponent } from './create-event/create-event.component';
     EventThumbnailComponent,
     NavbarComponent,
     EventDetailsComponent,
-    CreateEventComponent
+    CreateEventComponent,
+    ErrorComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+  imports: [BrowserModule, AppRoutingModule],
+  providers: [EventRouteActivatorService],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
