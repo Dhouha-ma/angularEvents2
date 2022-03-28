@@ -8,7 +8,11 @@ import { ErrorComponent } from './components/error/error.component';
 import { EventRouteActivatorService } from './services/event-route-activator.service';
 
 const routes: Routes = [
-  { path: 'events/new', component: CreateEventComponent },
+  {
+    path: 'events/new',
+    component: CreateEventComponent,
+    canDeactivate: ['canDeactivateCreateEvent'],
+  },
   { path: 'events', component: EventsListComponent },
   {
     path: 'events/:id',
