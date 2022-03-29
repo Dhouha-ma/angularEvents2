@@ -6,6 +6,7 @@ import { EventDetailsComponent } from './components/event-details/event-details.
 import { CreateEventComponent } from './components/create-event/create-event.component';
 import { ErrorComponent } from './components/error/error.component';
 import { EventRouteActivatorService } from './services/event-route-activator.service';
+import { EventsListResolverService } from './services/events-list-resolver.service';
 
 const routes: Routes = [
   {
@@ -13,7 +14,11 @@ const routes: Routes = [
     component: CreateEventComponent,
     canDeactivate: ['canDeactivateCreateEvent'],
   },
-  { path: 'events', component: EventsListComponent },
+  {
+    path: 'events',
+    component: EventsListComponent,
+    resolve: { events: EventsListResolverService },
+  },
   {
     path: 'events/:id',
     component: EventDetailsComponent,
@@ -21,6 +26,10 @@ const routes: Routes = [
   },
   { path: 'error', component: ErrorComponent },
   { path: '', redirectTo: '/events', pathMatch: 'full' },
+  {
+    path: 'user',
+    loadChildren: () => import('./user.module').then((m) => m.UserModule),
+  },
 ];
 
 @NgModule({
