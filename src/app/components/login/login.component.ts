@@ -9,7 +9,8 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class LoginComponent implements OnInit {
   userName;
-  password
+  password;
+  mouseoverLogin
   constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit(): void {

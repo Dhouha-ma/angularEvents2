@@ -1,25 +1,75 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, getTestBed, TestBed } from '@angular/core/testing';
+import { ReactiveFormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
+import { of } from 'rxjs';
+import { AuthService } from 'src/app/services/auth.service';
 
 import { ProfileComponent } from './profile.component';
 
 describe('ProfileComponent', () => {
   let component: ProfileComponent;
   let fixture: ComponentFixture<ProfileComponent>;
+  let routerSpy = { navigate: jasmine.createSpy('navigate') };
+  let mockAuthService = {
+    currentUser: {
+      id: 1,
+      firstName: 'dhouha',
+      lastName: 'mansour',
+    },
+    updateCurrentUser(firstName, lastName) {},
+  };
+  let authService;
+  let injector = getTestBed();
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ProfileComponent ]
-    })
-    .compileComponents();
+      declarations: [ProfileComponent],
+      providers: [
+        { provide: Router, useValue: routerSpy },
+        { provide: AuthService, useValue: mockAuthService },
+      ],
+    }).compileComponents();
   });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(ProfileComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
+    authService = injector.get(AuthService);
   });
 
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  describe('cancel', () => {
+    it('redirect to events page', () => {
+      component.cancel();
+      expect(routerSpy.navigate).toHaveBeenCalledWith(['events']);
+    });
+  });
+
+  describe('saveProfile', () => {
+    it('update user an redirect to events page', () => {
+      let formValues = {
+        firstName: '',
+        lastName: '',
+      };
+
+      spyOn(authService, 'updateCurrentUser').and.returnValue(of(true));
+
+      component.saveProfile(formValues);
+      expect(authService.updateCurrentUser).toHaveBeenCalledWith(
+        formValues.firstName,
+        formValues.lastName
+      );
+      expect(routerSpy.navigate).toHaveBeenCalledWith(['events']);
+    });
+  });
+
+  // describe('ngOnInit', () => {
+  //   it('Test', () => {
+  //     expect().toBe();
+  //   });
+  // });
 });
