@@ -2,14 +2,23 @@
   <h1>Edit Your Profile</h1>
   <hr />
   <div class="col-md-4">
-    <form
+    <form *ngIf="profileForm"
       [formGroup]="profileForm"
       (ngSubmit)="saveProfile(profileForm.value)"
       autocomplete="off"
       novalidate
     >
-      <div class="form-group">
+      <div class="form-group" [ngClass]="{
+        error: !validateFirstName()
+      }">
         <label for="firstName">First Name:</label>
+        <em
+          *ngIf="
+            !validateFirstName() &&
+            profileForm.controls.firstName.errors.required
+          "
+          >Required</em
+        >
         <input
           formControlName="firstName"
           id="firstName"
@@ -18,8 +27,17 @@
           placeholder="First Name..."
         />
       </div>
-      <div class="form-group">
+      <div class="form-group" [ngClass]="{
+        error: !validateLastName()
+      }">
         <label for="lastName">Last Name:</label>
+        <em
+          *ngIf="
+            !validateLastName() &&
+            profileForm.controls.lastName.errors.required
+          "
+          >Required</em
+        >
         <input
           formControlName="lastName"
           id="lastName"
