@@ -10,6 +10,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { CreateEventComponent } from './components/create-event/create-event.component';
 import { ErrorComponent } from './components/error/error.component';
 import { EventRouteActivatorService } from './services/event-route-activator.service';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CreateSessionComponent } from './components/create-session/create-session.component';
 
 @NgModule({
   declarations: [
@@ -20,8 +22,9 @@ import { EventRouteActivatorService } from './services/event-route-activator.ser
     EventDetailsComponent,
     CreateEventComponent,
     ErrorComponent,
+    CreateSessionComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule],
+  imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule],
   providers: [
     EventRouteActivatorService,
     { provide: 'canDeactivateCreateEvent', useValue: checkDirtyState },

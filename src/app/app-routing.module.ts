@@ -7,6 +7,7 @@ import { CreateEventComponent } from './components/create-event/create-event.com
 import { ErrorComponent } from './components/error/error.component';
 import { EventRouteActivatorService } from './services/event-route-activator.service';
 import { EventsListResolverService } from './services/events-list-resolver.service';
+import { CreateSessionComponent } from './components/create-session/create-session.component';
 
 const routes: Routes = [
   {
@@ -24,6 +25,7 @@ const routes: Routes = [
     component: EventDetailsComponent,
     canActivate: [EventRouteActivatorService],
   },
+  { path: 'events/session/new', component: CreateSessionComponent },
   { path: 'error', component: ErrorComponent },
   { path: '', redirectTo: '/events', pathMatch: 'full' },
   {
