@@ -12,6 +12,7 @@ import { ErrorComponent } from './components/error/error.component';
 import { EventRouteActivatorService } from './services/event-route-activator.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CreateSessionComponent } from './components/create-session/create-session.component';
+import { SessionListComponent } from './components/session-list/session-list.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { CreateSessionComponent } from './components/create-session/create-sessi
     CreateEventComponent,
     ErrorComponent,
     CreateSessionComponent,
+    SessionListComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule],
   providers: [
