@@ -8,9 +8,8 @@ describe('CreateSessionComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CreateSessionComponent ]
-    })
-    .compileComponents();
+      declarations: [CreateSessionComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {
@@ -21,5 +20,50 @@ describe('CreateSessionComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  describe('saveSession', () => {
+    it('should emit session', () => {
+      let formValues = {
+        id: 1,
+        name: 'dhouha',
+        presenter: 'me',
+        duration: 1,
+        level: 'beginner',
+        abstract: 'abstract',
+      };
+
+      const session = {
+        id: undefined,
+        name: formValues.name,
+        presenter: formValues.presenter,
+        duration: formValues.duration,
+        level: formValues.level,
+        abstract: formValues.abstract,
+        voters: [],
+      };
+
+      spyOn(component.saveNewSession, 'emit');
+
+      const nativeElement = fixture.nativeElement;
+      const button = nativeElement.querySelector('button');
+      button.dispatchEvent(new Event('click'));
+
+      component.saveSession(formValues);
+      expect(component.saveNewSession.emit).toHaveBeenCalledWith(session);
+    });
+  });
+
+  describe('cancel', () => {
+    it('should emit cancel', () => {
+      spyOn(component.cancelAddSession, 'emit');
+
+      const nativeElement = fixture.nativeElement;
+      const button = nativeElement.querySelector('button');
+      button.dispatchEvent(new Event('click'));
+
+      component.cancel();
+      expect(component.cancelAddSession.emit).toHaveBeenCalled();
+    });
   });
 });
