@@ -2,8 +2,8 @@
   [routerLink]="['/events', eventThumbnail?.id]"
   class="well hoverwell thumbnail"
 >
-  <h2>{{ eventThumbnail?.name }}</h2>
-  <div>Date: {{ eventThumbnail?.date }}</div>
+  <h2>{{ eventThumbnail?.name | uppercase}}</h2>
+  <div>Date: {{ eventThumbnail?.date | date: 'shortDate'}}</div>
   <div [ngClass]="getStartTimeClass()" [ngSwitch]="eventThumbnail?.time">
     Time: {{ eventThumbnail?.time }}
     <span *ngSwitchCase="'8:00 am'">(Early Start)</span>
