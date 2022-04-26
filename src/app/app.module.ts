@@ -13,6 +13,7 @@ import { EventRouteActivatorService } from './services/event-route-activator.ser
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CreateSessionComponent } from './components/create-session/create-session.component';
 import { SessionListComponent } from './components/session-list/session-list.component';
+import { CollapsibleWellComponent } from './components/collapsible-well/collapsible-well.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { SessionListComponent } from './components/session-list/session-list.com
     ErrorComponent,
     CreateSessionComponent,
     SessionListComponent,
+    CollapsibleWellComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule],
   providers: [
