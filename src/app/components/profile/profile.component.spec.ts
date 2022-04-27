@@ -3,6 +3,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { of } from 'rxjs';
 import { AuthService } from 'src/app/services/auth.service';
+import { TOASTR_TOKEN } from 'src/app/services/toastr.service';
 
 import { ProfileComponent } from './profile.component';
 
@@ -20,6 +21,9 @@ describe('ProfileComponent', () => {
   };
   let authService;
   let injector = getTestBed();
+  let mocktoastr = {
+    success(){}
+  }
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -27,6 +31,7 @@ describe('ProfileComponent', () => {
       providers: [
         { provide: Router, useValue: routerSpy },
         { provide: AuthService, useValue: mockAuthService },
+        { provide: TOASTR_TOKEN, useValue: mocktoastr },
       ],
     }).compileComponents();
   });
@@ -63,7 +68,7 @@ describe('ProfileComponent', () => {
         formValues.firstName,
         formValues.lastName
       );
-      expect(routerSpy.navigate).toHaveBeenCalledWith(['events']);
+
     });
   });
 
