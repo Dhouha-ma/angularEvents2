@@ -16,7 +16,10 @@ import { SessionListComponent } from './components/session-list/session-list.com
 import { CollapsibleWellComponent } from './components/collapsible-well/collapsible-well.component';
 import { DurationPipe } from './pipes/duration.pipe';
 import { Toastr, TOASTR_TOKEN } from './services/toastr.service';
+import { JQ_TOKEN } from './services/jQuery.service';
+
 const toastr: Toastr = window['toastr'];
+const jQuery: Toastr = window['$'];
 
 @NgModule({
   declarations: [
@@ -37,6 +40,7 @@ const toastr: Toastr = window['toastr'];
     EventRouteActivatorService,
     { provide: 'canDeactivateCreateEvent', useValue: checkDirtyState },
     { provide: TOASTR_TOKEN, useValue: toastr },
+    { provide: JQ_TOKEN, useValue: jQuery },
   ],
   bootstrap: [AppComponent],
 })
