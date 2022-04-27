@@ -33,8 +33,20 @@
         class="btn-group btn-group-sm"
         style="margin-right: 20px; margin-left: 20px"
       >
-        <button class="btn btn-default">By Name</button>
-        <button class="btn btn-default">By Votes</button>
+        <button
+          class="btn btn-default"
+          [class.active]="sortBy === 'name'"
+          (click)="sortBy = 'name'"
+        >
+          By Name
+        </button>
+        <button
+          class="btn btn-default"
+          [class.active]="sortBy === 'votes'"
+          (click)="sortBy = 'votes'"
+        >
+          By Votes
+        </button>
       </div>
       <div class="btn-group btn-group-sm">
         <button
@@ -75,6 +87,7 @@
   <app-session-list
     [sessions]="event?.sessions"
     [filterBy]="filterBy"
+    [sortBy]="sortBy"
     *ngIf="!addMode"
   ></app-session-list>
   <app-create-session
