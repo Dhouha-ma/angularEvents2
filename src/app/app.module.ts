@@ -17,6 +17,8 @@ import { CollapsibleWellComponent } from './components/collapsible-well/collapsi
 import { DurationPipe } from './pipes/duration.pipe';
 import { Toastr, TOASTR_TOKEN } from './services/toastr.service';
 import { JQ_TOKEN } from './services/jQuery.service';
+import { SimpleModalComponent } from './components/simple-modal/simple-modal.component';
+import { ModalTriggerDirective } from './directives/modal-trigger.directive';
 
 const toastr: Toastr = window['toastr'];
 const jQuery: Toastr = window['$'];
@@ -34,6 +36,8 @@ const jQuery: Toastr = window['$'];
     SessionListComponent,
     CollapsibleWellComponent,
     DurationPipe,
+    SimpleModalComponent,
+    ModalTriggerDirective
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule],
   providers: [
