@@ -25,9 +25,7 @@ describe('EventDetailsComponent', () => {
         {
           provide: ActivatedRoute,
           useValue: {
-            snapshot: {
-              params: paramsSubject,
-            },
+            params: paramsSubject,
           },
         },
       ],
