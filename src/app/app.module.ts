@@ -19,6 +19,11 @@ import { Toastr, TOASTR_TOKEN } from './services/toastr.service';
 import { JQ_TOKEN } from './services/jQuery.service';
 import { SimpleModalComponent } from './components/simple-modal/simple-modal.component';
 import { ModalTriggerDirective } from './directives/modal-trigger.directive';
+import { UpvoteComponent } from './components/upvote/upvote.component';
+import { EventService } from './services/event.service';
+import { VoterService } from './services/voter.service';
+import { AuthService } from './services/auth.service';
+import { EventsListResolverService } from './services/events-list-resolver.service';
 
 const toastr: Toastr = window['toastr'];
 const jQuery: Toastr = window['$'];
@@ -37,7 +42,8 @@ const jQuery: Toastr = window['$'];
     CollapsibleWellComponent,
     DurationPipe,
     SimpleModalComponent,
-    ModalTriggerDirective
+    ModalTriggerDirective,
+    UpvoteComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule],
   providers: [
@@ -45,6 +51,10 @@ const jQuery: Toastr = window['$'];
     { provide: 'canDeactivateCreateEvent', useValue: checkDirtyState },
     { provide: TOASTR_TOKEN, useValue: toastr },
     { provide: JQ_TOKEN, useValue: jQuery },
+    EventService,
+    VoterService,
+    AuthService,
+    EventsListResolverService,
   ],
   bootstrap: [AppComponent],
 })
