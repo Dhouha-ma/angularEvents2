@@ -24,6 +24,7 @@ import { EventService } from './services/event.service';
 import { VoterService } from './services/voter.service';
 import { AuthService } from './services/auth.service';
 import { EventsListResolverService } from './services/events-list-resolver.service';
+import { LocationValidator } from './directives/location-validator.directive';
 
 const toastr: Toastr = window['toastr'];
 const jQuery: Toastr = window['$'];
@@ -44,6 +45,7 @@ const jQuery: Toastr = window['$'];
     SimpleModalComponent,
     ModalTriggerDirective,
     UpvoteComponent,
+    LocationValidator
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule],
   providers: [
