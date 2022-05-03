@@ -22,4 +22,13 @@ describe('CollapsibleWellComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  describe('toggleContent', () => {
+    it('should set visible to the opposite value', () => {
+      component.visible = true;
+      component.toggleContent();
+      expect(component.visible).toBe(false);
+    });
+  });
+  
 });

@@ -72,10 +72,4 @@ describe('EventsListComponent', () => {
       expect(component.events).toBe(eventsData.events);
     });
   });
-
-  // describe('handleThumbnailClick', () => {
-  //   it('should ', () => {
-     
-  //   });
-  // });
 });

@@ -47,6 +47,12 @@ describe('ProfileComponent', () => {
     expect(component).toBeTruthy();
   });
 
+    // describe('ngOnInit', () => {
+  //   it('Test', () => {
+  //     expect().toBe();
+  //   });
+  // });
+
   describe('cancel', () => {
     it('redirect to events page', () => {
       component.cancel();
@@ -68,13 +74,17 @@ describe('ProfileComponent', () => {
         formValues.firstName,
         formValues.lastName
       );
-
     });
   });
 
-  // describe('ngOnInit', () => {
+  // describe('validateLastName', () => {
   //   it('Test', () => {
-  //     expect().toBe();
+  //     component.lastName = {
+       
+  //     };
+  //     component.lastName.untouched;
+  //     expect(component.validateLastName()).toBe(true);
   //   });
   // });
+  
 });

@@ -11,8 +11,8 @@ import { Toastr, TOASTR_TOKEN } from 'src/app/services/toastr.service';
 })
 export class ProfileComponent implements OnInit {
   profileForm: FormGroup;
-  private firstName: FormControl;
-  private lastName: FormControl;
+  firstName: FormControl;
+  lastName: FormControl;
 
   constructor(private authService: AuthService, private router: Router, @Inject(TOASTR_TOKEN) private toastr: Toastr) {}
 

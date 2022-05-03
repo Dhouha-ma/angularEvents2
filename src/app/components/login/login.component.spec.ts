@@ -1,4 +1,9 @@
-import { ComponentFixture, fakeAsync, TestBed, tick } from '@angular/core/testing';
+import {
+  ComponentFixture,
+  fakeAsync,
+  TestBed,
+  tick,
+} from '@angular/core/testing';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import * as Rx from 'rxjs';
@@ -33,22 +38,27 @@ describe('LoginComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  // describe('login', fakeAsync(() => {
-  //   it('redirect to events page', () => {
-  //     let formValues = {
-  //       userName: 'dhouhama',
-  //       password: 'test',
-  //     };
+  describe('login', () => {
+    it('redirect to events page', fakeAsync(() => {
+      let formValues = {
+        userName: 'dhouhama',
+        password: 'test',
+      };
 
-  //     let spyGetGameList = spyOn(service, 'loginUser').and.callFake(() => {
-  //       return Rx.of(formValues).pipe(delay(1000));
-  //     });
+      let spyLoginUser = spyOn(service, 'loginUser').and.callFake(() => {
+        return Rx.of(formValues).pipe(delay(1000));
+      });
 
-  //     component.login(formValues);
-  //     tick(1000);
+      component.login(formValues);
+      tick(1000);
 
-  //   });
-  // }));
+      expect(service.loginUser).toHaveBeenCalledWith(
+        formValues.userName,
+        formValues.password
+      );
+      expect(routerSpy.navigate).toHaveBeenCalledWith(['events']);
+    }));
+  });
 
   describe('cancel', () => {
     it('redirect to events page', () => {

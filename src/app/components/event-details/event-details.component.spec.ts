@@ -45,7 +45,7 @@ describe('EventDetailsComponent', () => {
   });
 
   // describe('ngOnInit', () => {
-  //   it('Should get event details', fakeAsync(() => {
+  //   it('should get event details', fakeAsync(() => {
   //     let event = {
   //       id: 1,
   //       name: 'Angular Connect',
@@ -71,15 +71,17 @@ describe('EventDetailsComponent', () => {
   //       ],
   //     };
 
-  //     let spyGetGameList = spyOn(service, 'getEvent').and.callFake(() => {
+  //     let spyGetEvent = spyOn(service, 'getEvent').and.callFake(() => {
   //       return Rx.of(event).pipe(delay(1000));
   //     });
 
   //     paramsSubject.next({ 'id': 1 });
   //     component.ngOnInit();
   //     tick(1000);
-
+      
+  //     expect(service.getEvent).toHaveBeenCalledWith(1);
   //     expect(component.event).toEqual(event);
+  //     expect(component.addMode).toBe(false);
   //   }));
   // });
 
@@ -134,7 +136,7 @@ describe('EventDetailsComponent', () => {
         ],
       };
 
-      let spyGetGameList = spyOn(service, 'updateEvent').and.callFake(() => {
+      let spyUpdateEvent = spyOn(service, 'updateEvent').and.callFake(() => {
         return Rx.of(component.event).pipe(delay(1000));
       });
 
