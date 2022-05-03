@@ -63,6 +63,7 @@ export class SessionListComponent implements OnChanges {
       this.authService.currentUser.userName
     );
   }
+  
 }
 
 function sortByNameAsc(s1: ISession, s2: ISession) {

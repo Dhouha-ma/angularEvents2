@@ -22,4 +22,14 @@ describe('UpvoteComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  describe('onClick', () => {
+    it('should emit', () => {
+      spyOn(component.vote, 'emit');
+
+      component.onClick();
+      expect(component.vote.emit).toHaveBeenCalledWith({});
+    });
+  });
+  
 });

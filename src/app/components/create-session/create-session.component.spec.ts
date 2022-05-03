@@ -58,10 +58,6 @@ describe('CreateSessionComponent', () => {
     it('should emit cancel', () => {
       spyOn(component.cancelAddSession, 'emit');
 
-      const nativeElement = fixture.nativeElement;
-      const button = nativeElement.querySelector('button');
-      button.dispatchEvent(new Event('click'));
-
       component.cancel();
       expect(component.cancelAddSession.emit).toHaveBeenCalled();
     });
