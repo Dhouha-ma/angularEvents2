@@ -2,6 +2,8 @@ import { ComponentFixture, getTestBed, TestBed } from '@angular/core/testing';
 import { of } from 'rxjs';
 import { AuthService } from 'src/app/services/auth.service';
 import { VoterService } from 'src/app/services/voter.service';
+import * as SessionListObj from './session-list.component';
+
 
 import { SessionListComponent } from './session-list.component';
 
@@ -119,5 +121,12 @@ describe('SessionListComponent', () => {
       // expect().toBe();
     });
   }); 
+
+  // describe('sortByNameAsc', () => {
+  //   it('Test', () => {
+      
+  //     let sortByNameAscSpy = spyOn(SessionListObj, 'sortByNameAsc').and.returnValue(1);
+  //   });
+  // });
   
 });

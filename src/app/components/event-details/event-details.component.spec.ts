@@ -5,7 +5,7 @@ import {
   tick,
 } from '@angular/core/testing';
 import { ActivatedRoute } from '@angular/router';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, of } from 'rxjs';
 import { EventService } from 'src/app/services/event.service';
 import * as Rx from 'rxjs';
 import { delay } from 'rxjs/operators';
@@ -58,6 +58,7 @@ describe('EventDetailsComponent', () => {
   //         city: 'London',
   //         country: 'England',
   //       },
+  //       onlineUrl: 'string',
   //       sessions: [
   //         {
   //           id: 1,
