@@ -9,7 +9,6 @@ import { EventDetailsComponent } from './components/event-details/event-details.
 import { AppRoutingModule } from './app-routing.module';
 import { CreateEventComponent } from './components/create-event/create-event.component';
 import { ErrorComponent } from './components/error/error.component';
-import { EventRouteActivatorService } from './services/event-route-activator.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CreateSessionComponent } from './components/create-session/create-session.component';
 import { SessionListComponent } from './components/session-list/session-list.component';
@@ -26,6 +25,7 @@ import { AuthService } from './services/auth.service';
 import { EventsListResolverService } from './services/events-list-resolver.service';
 import { LocationValidator } from './directives/location-validator.directive';
 import { HttpClientModule } from '@angular/common/http';
+import { EventResolverService } from './services/event-resolver.service';
 
 const toastr: Toastr = window['toastr'];
 const jQuery: Toastr = window['$'];
@@ -56,7 +56,6 @@ const jQuery: Toastr = window['$'];
     HttpClientModule,
   ],
   providers: [
-    EventRouteActivatorService,
     { provide: 'canDeactivateCreateEvent', useValue: checkDirtyState },
     { provide: TOASTR_TOKEN, useValue: toastr },
     { provide: JQ_TOKEN, useValue: jQuery },
@@ -64,6 +63,7 @@ const jQuery: Toastr = window['$'];
     VoterService,
     AuthService,
     EventsListResolverService,
+    EventResolverService
   ],
   bootstrap: [AppComponent],
 })
