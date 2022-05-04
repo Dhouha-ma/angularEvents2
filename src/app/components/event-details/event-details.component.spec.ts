@@ -27,10 +27,14 @@ describe('EventDetailsComponent', () => {
           provide: ActivatedRoute,
           useValue: {
             params: paramsSubject,
+            data: {
+              events: {},
+              forEach() {},
+            },
           },
         },
       ],
-      imports: [HttpClientTestingModule]
+      imports: [HttpClientTestingModule],
     }).compileComponents();
   });
 
@@ -81,7 +85,7 @@ describe('EventDetailsComponent', () => {
   //     paramsSubject.next({ 'id': 1 });
   //     component.ngOnInit();
   //     tick(1000);
-      
+
   //     expect(service.getEvent).toHaveBeenCalledWith(1);
   //     expect(component.event).toEqual(event);
   //     expect(component.addMode).toBe(false);
