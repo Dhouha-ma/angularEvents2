@@ -1,6 +1,7 @@
 import { ComponentFixture, fakeAsync, TestBed, tick } from '@angular/core/testing';
 import { delay } from 'rxjs/operators';
 import * as Rx from 'rxjs';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 import { AuthService } from 'src/app/services/auth.service';
 import { EventService } from 'src/app/services/event.service';
@@ -14,7 +15,8 @@ describe('NavbarComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ NavbarComponent ],
-      providers: [AuthService]
+      providers: [AuthService],
+      imports: [HttpClientTestingModule]
     })
     .compileComponents();
   });

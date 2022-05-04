@@ -1,3 +1,4 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ActivatedRoute } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
@@ -54,6 +55,7 @@ describe('EventsListComponent', () => {
           },
         },
       ],
+      imports: [HttpClientTestingModule],
     }).compileComponents();
   });
 

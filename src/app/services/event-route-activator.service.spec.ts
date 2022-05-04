@@ -1,3 +1,4 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { getTestBed, TestBed } from '@angular/core/testing';
 import {
   ActivatedRouteSnapshot,
@@ -32,6 +33,7 @@ describe('EventRouteActivatorService', () => {
           useValue: routerSpy,
         },
       ],
+      imports: [HttpClientTestingModule],
     });
 
     service = TestBed.inject(EventRouteActivatorService);

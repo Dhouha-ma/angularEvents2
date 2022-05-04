@@ -10,6 +10,7 @@ import { EventService } from 'src/app/services/event.service';
 import * as Rx from 'rxjs';
 import { delay } from 'rxjs/operators';
 import { EventDetailsComponent } from './event-details.component';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('EventDetailsComponent', () => {
   let component: EventDetailsComponent;
@@ -29,6 +30,7 @@ describe('EventDetailsComponent', () => {
           },
         },
       ],
+      imports: [HttpClientTestingModule]
     }).compileComponents();
   });
 

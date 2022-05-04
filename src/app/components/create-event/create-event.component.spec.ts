@@ -3,6 +3,7 @@ import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { of } from 'rxjs';
 import { EventService } from 'src/app/services/event.service';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 import { CreateEventComponent } from './create-event.component';
 
@@ -16,7 +17,7 @@ describe('CreateEventComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [CreateEventComponent],
-      imports: [FormsModule],
+      imports: [FormsModule, HttpClientTestingModule],
       providers: [{ provide: Router, useValue: routerSpy }],
     }).compileComponents();
   });
