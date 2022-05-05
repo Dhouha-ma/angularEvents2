@@ -14,7 +14,11 @@ export class ProfileComponent implements OnInit {
   firstName: FormControl;
   lastName: FormControl;
 
-  constructor(private authService: AuthService, private router: Router, @Inject(TOASTR_TOKEN) private toastr: Toastr) {}
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+    @Inject(TOASTR_TOKEN) private toastr: Toastr
+  ) {}
 
   ngOnInit() {
     this.firstName = new FormControl(this.authService.currentUser.firstName, [
@@ -37,11 +41,11 @@ export class ProfileComponent implements OnInit {
 
   saveProfile(formValues) {
     if (this.profileForm.valid) {
-      this.authService.updateCurrentUser(
-        formValues.firstName,
-        formValues.lastName
-      );
-      this.toastr.success('Profile saved')
+      this.authService
+        .updateCurrentUser(formValues.firstName, formValues.lastName)
+        .subscribe(() => {
+          this.toastr.success('Profile saved');
+        });
     }
   }
   validateLastName() {
@@ -50,5 +54,11 @@ export class ProfileComponent implements OnInit {
 
   validateFirstName() {
     return this.firstName.valid || this.firstName.untouched;
+  }
+
+  logout() {
+    this.authService.logout().subscribe(() => {
+      this.router.navigate(['/user/login']);
+    });
   }
 }

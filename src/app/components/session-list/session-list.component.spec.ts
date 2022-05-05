@@ -13,7 +13,7 @@ describe('SessionListComponent', () => {
   let fixture: ComponentFixture<SessionListComponent>;
   let voterService;
   let injector = getTestBed();
-  let mockAuthService: AuthService = {
+  let mockAuthService = {
     currentUser : {
       id: 1,
       firstName: 'dhouha',

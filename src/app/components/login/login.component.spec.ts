@@ -11,6 +11,7 @@ import { delay } from 'rxjs/operators';
 
 import { LoginComponent } from './login.component';
 import { AuthService } from 'src/app/services/auth.service';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('LoginComponent', () => {
   let component: LoginComponent;
@@ -21,7 +22,7 @@ describe('LoginComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [LoginComponent],
-      imports: [FormsModule],
+      imports: [FormsModule, HttpClientTestingModule],
       providers: [{ provide: Router, useValue: routerSpy }, AuthService],
     }).compileComponents();
   });
