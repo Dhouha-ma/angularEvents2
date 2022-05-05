@@ -143,14 +143,14 @@ describe('EventDetailsComponent', () => {
         ],
       };
 
-      let spyUpdateEvent = spyOn(service, 'updateEvent').and.callFake(() => {
+      let spyUpdateEvent = spyOn(service, 'saveEvent').and.callFake(() => {
         return Rx.of(component.event).pipe(delay(1000));
       });
 
       component.saveNewSession(session);
       tick(1000);
       expect(component.event.sessions.length).toBe(2);
-      expect(service.updateEvent).toHaveBeenCalledWith(component.event);
+      expect(service.saveEvent).toHaveBeenCalledWith(component.event);
       expect(component.addMode).toBe(false);
     }));
   });
