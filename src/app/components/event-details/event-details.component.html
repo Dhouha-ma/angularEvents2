@@ -87,6 +87,7 @@
   <app-session-list
     [sessions]="event?.sessions"
     [filterBy]="filterBy"
+    [eventId]="event?.id"
     [sortBy]="sortBy"
     *ngIf="!addMode"
   ></app-session-list>

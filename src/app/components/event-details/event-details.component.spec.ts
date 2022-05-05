@@ -143,7 +143,7 @@ describe('EventDetailsComponent', () => {
         ],
       };
 
-      let spyUpdateEvent = spyOn(service, 'saveEvent').and.callFake(() => {
+      let spySaveEvent = spyOn(service, 'saveEvent').and.callFake(() => {
         return Rx.of(component.event).pipe(delay(1000));
       });
 

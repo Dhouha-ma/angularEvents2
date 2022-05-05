@@ -53,7 +53,7 @@ describe('CreateEventComponent', () => {
       component.saveEvent(formValues);
       expect(eventService.saveEvent).toHaveBeenCalledWith(formValues);
       expect(component.isDirty).toBe(false);
-      expect(routerSpy.navigate).toHaveBeenCalledWith(['events']);
+      expect(routerSpy.navigate).toHaveBeenCalledWith(['/events']);
     });
   });
 });

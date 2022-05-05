@@ -1,3 +1,4 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, getTestBed, TestBed } from '@angular/core/testing';
 import { of } from 'rxjs';
 import { AuthService } from 'src/app/services/auth.service';
@@ -31,7 +32,8 @@ describe('SessionListComponent', () => {
       declarations: [SessionListComponent],
       providers: [
         { provide: AuthService, useValue: mockAuthService }
-      ]
+      ],
+      imports: [HttpClientTestingModule],
     }).compileComponents();
   });
 
